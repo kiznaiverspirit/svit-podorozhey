@@ -1,0 +1,797 @@
+/* ===== Змінні: кольори, градієнти, тіні та шрифт ===== */
+:root {
+  --color-primary: #1f5f8b;
+  --color-accent: #f28c28;
+  --color-light: #eef5fa;
+  --color-dark: #1b2b3a;
+  --color-white: #ffffff;
+  --color-text: #222222;
+  --color-border: #b5cfe0;
+  --color-slogan: #ffd9a8;
+  --gradient-primary: linear-gradient(135deg, #1f5f8b, #2f86bd);
+  --gradient-accent: linear-gradient(135deg, #f28c28, #f7b267);
+  --gradient-dark: linear-gradient(135deg, #1b2b3a, #2c4358);
+  --shadow: 0 0.25rem 0.75rem rgba(31, 95, 139, 0.18);
+  --shadow-hover: 0 0.6rem 1.4rem rgba(31, 95, 139, 0.35);
+  --font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+/* ===== Загальні стилі ===== */
+/* Коментар: Плавний скролінг для кнопки "Нагору" та посилань-якорів */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+/* Скидання відступів */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Основний шрифт і кольори беруться зі змінних :root. Відступ зверху дорівнює висоті фіксованої шапки */
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 6.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Основний контент займає вільне місце, футер притискається донизу */
+main {
+  flex: 1;
+  width: 100%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.875rem;
+}
+
+/* Контейнер: максимум 1200px (75rem), по центру */
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ===== Шапка ===== */
+/* Коментар: Шапка з фіксованою позицією, градієнтом і тінню */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 6.25rem;
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow);
+}
+
+.header-inner {
+  height: 6.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Коментар: Анімація появи (fade-in) назви сайту та трансформація scale при hover на логотипі */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: default;
+  transform-origin: left center;
+  -webkit-transition: -webkit-transform 0.3s ease, color 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
+  -webkit-animation: fadeIn 1.2s ease-out backwards;
+  -moz-animation: fadeIn 1.2s ease-out backwards;
+  animation: fadeIn 1.2s ease-out backwards;
+  will-change: transform;
+}
+
+.logo:hover {
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  transform: scale(1.08);
+  color: var(--color-slogan);
+}
+
+.slogan {
+  font-size: 1rem;
+  color: var(--color-slogan);
+  -webkit-animation: fadeIn 2s ease-out backwards;
+  -moz-animation: fadeIn 2s ease-out backwards;
+  animation: fadeIn 2s ease-out backwards;
+}
+
+/* ===== Навігація ===== */
+nav {
+  position: relative;
+  z-index: 50;
+  background-color: var(--color-light);
+  border-bottom: 0.1875rem solid var(--color-accent);
+}
+
+/* Коментар: Горизонтальне меню на flexbox */
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu > li {
+  position: relative;
+}
+
+/* Коментар: Плавні переходи кольору та розміру тексту пунктів меню */
+nav a {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--gradient-accent);
+  color: var(--color-white);
+  font-size: 1.05rem;
+}
+
+/* Коментар: Dropdown-меню з анімацією висування (translateY) */
+.submenu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 12rem;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-hover);
+  border-radius: 0 0 0.375rem 0.375rem;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-0.75rem);
+  -moz-transform: translateY(-0.75rem);
+  transform: translateY(-0.75rem);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.submenu a {
+  font-size: 0.95rem;
+  font-weight: normal;
+}
+
+/* ===== Основний контент ===== */
+h1 {
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+/* Три колонки через Flexbox */
+.columns {
+  display: flex;
+  gap: 1.25rem;
+}
+
+/* Коментар: Блоки-картки: transition для transform і box-shadow при hover */
+section {
+  flex: 1;
+  background: linear-gradient(180deg, var(--color-light), var(--color-white));
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+section:hover {
+  -webkit-transform: translateY(-0.3rem);
+  -moz-transform: translateY(-0.3rem);
+  transform: translateY(-0.3rem);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Коментар: Блок 1 з'їжджає зліва (slide-in), блоки 2 та 3 плавно з'являються знизу */
+.columns section:nth-child(1) {
+  -webkit-animation: slideInLeft 0.9s ease-out backwards;
+  -moz-animation: slideInLeft 0.9s ease-out backwards;
+  animation: slideInLeft 0.9s ease-out backwards;
+}
+
+.columns section:nth-child(2) {
+  -webkit-animation: fadeUp 0.9s ease-out 0.2s backwards;
+  -moz-animation: fadeUp 0.9s ease-out 0.2s backwards;
+  animation: fadeUp 0.9s ease-out 0.2s backwards;
+}
+
+.columns section:nth-child(3) {
+  -webkit-animation: fadeUp 0.9s ease-out 0.4s backwards;
+  -moz-animation: fadeUp 0.9s ease-out 0.4s backwards;
+  animation: fadeUp 0.9s ease-out 0.4s backwards;
+}
+
+section h2 {
+  color: var(--color-primary);
+  margin-bottom: 0.625rem;
+  font-size: 1.375rem;
+}
+
+section h3 {
+  color: var(--color-primary);
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+section p {
+  margin-bottom: 0.625rem;
+}
+
+/* Коментар: Зображення - clip-path, filter: blur при завантаженні та rotate/scale при hover */
+section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.625rem;
+  border-radius: 0.25rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  -webkit-transition: -webkit-transform 0.4s ease, -webkit-clip-path 0.4s ease;
+  -moz-transition: -moz-transform 0.4s ease, clip-path 0.4s ease;
+  transition: transform 0.4s ease, clip-path 0.4s ease;
+  -webkit-animation: unblur 1.2s ease-out backwards;
+  -moz-animation: unblur 1.2s ease-out backwards;
+  animation: unblur 1.2s ease-out backwards;
+  will-change: transform;
+}
+
+section img:hover {
+  -webkit-transform: scale(1.05) rotate(-1.5deg);
+  -moz-transform: scale(1.05) rotate(-1.5deg);
+  transform: scale(1.05) rotate(-1.5deg);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+section ul,
+section ol {
+  margin: 0 0 0.625rem 1.25rem;
+}
+
+/* Коментар: Посилання в тексті з анімацією підкреслення при hover */
+main a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 0.0625rem dotted var(--color-primary);
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 0.125rem;
+  -webkit-transition: background-size 0.3s ease, color 0.3s ease;
+  -moz-transition: background-size 0.3s ease, color 0.3s ease;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+main a:hover {
+  background-size: 100% 0.125rem;
+  color: var(--color-accent);
+}
+
+/* ===== Таблиці ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-white);
+  margin-bottom: 0.625rem;
+}
+
+th,
+td {
+  border: 0.0625rem solid var(--color-border);
+  padding: 0.375rem 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+th {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+/* Коментар: Підсвічування рядка таблиці */
+td {
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+tr:hover td {
+  background-color: var(--color-slogan);
+}
+
+/* ===== Прогрес-бари ===== */
+/* Коментар: Ширина смуги анімується keyframes при завантаженні, а при hover плавно змінюється через transition: width */
+.label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.bar {
+  height: 1.125rem;
+  background-color: var(--color-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  width: var(--w);
+  background: var(--gradient-accent);
+  border-radius: 0.5rem;
+  -webkit-transition: width 0.8s ease;
+  -moz-transition: width 0.8s ease;
+  transition: width 0.8s ease;
+  -webkit-animation: growBar 1.6s ease-out backwards;
+  -moz-animation: growBar 1.6s ease-out backwards;
+  animation: growBar 1.6s ease-out backwards;
+  will-change: width;
+}
+
+.bar:hover span {
+  width: calc(var(--w) + 8%);
+}
+
+/* ===== Акордеон (без JavaScript) ===== */
+/* Коментар: Анімація висоти через max-height та приховані checkbox */
+.accordion input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.accordion label {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.accordion label:hover {
+  padding-left: 1.2rem;
+  background: var(--gradient-accent);
+}
+
+.accordion input:focus + label {
+  outline: 0.125rem solid var(--color-accent);
+}
+
+.acc-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 0.8rem;
+  background-color: var(--color-white);
+  -webkit-transition: max-height 0.4s ease, padding 0.4s ease;
+  -moz-transition: max-height 0.4s ease, padding 0.4s ease;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion input:checked + label + .acc-content {
+  max-height: 12rem;
+  padding: 0.6rem 0.8rem 0.1rem;
+}
+
+/* ===== Форма ===== */
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0.0625rem solid var(--color-border);
+  border-radius: 0.25rem;
+  font-family: var(--font-family);
+  -webkit-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  -moz-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem rgba(242, 140, 40, 0.3);
+}
+
+/* Коментар: Анімація кнопки відправки - пульсація (keyframes) та збільшення при hover */
+button {
+  font-family: var(--font-family);
+  margin-top: 0.75rem;
+  padding: 0.65rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-animation: pulse 2.4s ease-in-out infinite;
+  -moz-animation: pulse 2.4s ease-in-out infinite;
+  animation: pulse 2.4s ease-in-out infinite;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+button:hover {
+  background: var(--gradient-accent);
+  -webkit-transform: translateY(-0.15rem) scale(1.06);
+  -moz-transform: translateY(-0.15rem) scale(1.06);
+  transform: translateY(-0.15rem) scale(1.06);
+}
+
+button:active {
+  -webkit-transform: scale(0.96);
+  -moz-transform: scale(0.96);
+  transform: scale(0.96);
+}
+
+/* ===== Футер ===== */
+footer {
+  background: var(--gradient-dark);
+  color: var(--color-white);
+  padding: 1.25rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+/* Коментар: Соціальні іконки з анімацією підстрибування (bounce) при hover */
+.social {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  will-change: transform;
+}
+
+.icon:hover {
+  -webkit-animation: bounce 0.6s ease infinite;
+  -moz-animation: bounce 0.6s ease infinite;
+  animation: bounce 0.6s ease infinite;
+}
+
+/* Коментар: Кнопка "Нагору" з фіксованою позицією */
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 5.5rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  color: var(--color-white);
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+.back-to-top:hover {
+  -webkit-transform: translateY(-0.25rem) scale(1.12);
+  -moz-transform: translateY(-0.25rem) scale(1.12);
+  transform: translateY(-0.25rem) scale(1.12);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===== Ключові кадри (@keyframes) ===== */
+/* Коментар: Поява з прозорості */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Коментар: Блок 1 з'їжджає зліва */
+@-webkit-keyframes slideInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-3rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-moz-keyframes slideInLeft {
+  from {
+    opacity: 0;
+    -moz-transform: translateX(-3rem);
+  }
+  to {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Коментар: Блоки 2 та 3 підіймаються знизу */
+@-webkit-keyframes fadeUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes fadeUp {
+  from {
+    opacity: 0;
+    -moz-transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Коментар: Зображення стають чіткими після завантаження */
+@-webkit-keyframes unblur {
+  from {
+    -webkit-filter: blur(0.5rem);
+  }
+  to {
+    -webkit-filter: blur(0);
+  }
+}
+
+@-moz-keyframes unblur {
+  from {
+    filter: blur(0.5rem);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+@keyframes unblur {
+  from {
+    filter: blur(0.5rem);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+/* Коментар: Заповнення прогрес-бара */
+@-webkit-keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+@-moz-keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+/* Коментар: Підстрибування іконок */
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-0.5rem);
+  }
+}
+
+@-moz-keyframes bounce {
+  0%,
+  100% {
+    -moz-transform: translateY(0);
+  }
+  50% {
+    -moz-transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+/* Коментар: Пульсація тіні кнопки */
+@-webkit-keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 140, 40, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 0.6rem rgba(242, 140, 40, 0);
+  }
+}
+
+@-moz-keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 140, 40, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 0.6rem rgba(242, 140, 40, 0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 140, 40, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 0.6rem rgba(242, 140, 40, 0);
+  }
+}
+
+/* ===== Адаптивність: екрани менше 768px ===== */
+@media (max-width: 767px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  /* Коментар: На мобільних підменю показується в потоці без анімації висування */
+  .submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: none;
+    -moz-transform: none;
+    transform: none;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+/* Коментар: Користувачам, які вимкнули анімації в системі, ефекти не показуються */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    animation: none !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

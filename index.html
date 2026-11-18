@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна - Світ подорожей</title>
+  <!-- Підключення шрифту Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+  <!-- Початок шапки -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Світ подорожей</div>
+      <p class="slogan">Відкривай нові місця разом з нами</p>
+    </div>
+  </header>
+  <!-- Кінець шапки -->
+
+  <!-- Початок навігації -->
+  <nav>
+    <div class="container">
+      <ul class="menu">
+          <li><a href="index.html" class="active">Головна</a></li>
+          <li><a href="about.html">Про мене</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li class="dropdown">
+            <a href="tips.html">Поради</a>
+            <!-- Випадаюче меню з анімацією висування -->
+            <ul class="submenu">
+              <li><a href="tips.html#prepare">Підготовка</a></li>
+              <li><a href="tips.html#packing">Що взяти</a></li>
+              <li><a href="tips.html#budget">Бюджет</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Кінець навігації -->
+
+  <!-- Початок основного контенту -->
+  <main class="container">
+    <h1>Головна</h1>
+    <div class="columns">
+      <!-- Блок 1: вступна інформація -->
+      <section>
+        <h2>Ласкаво просимо</h2>
+        <img src="images/mountains.webp" alt="Гірський краєвид на заході сонця">
+        <p>Подорожі - це не лише переміщення з однієї точки на карті в іншу. Це можливість побачити, як живуть люди в різних країнах, спробувати незвичну кухню, почути іншу мову та подивитися на власне життя під новим кутом. Кожна поїздка залишає по собі історії, фотографії та враження, до яких хочеться повертатися знову і знову.</p>
+        <p>Цей сайт створено для тих, хто любить відкривати нові місця або тільки планує першу велику поїздку. Тут зібрано розповідь про мої подорожі, добірку фотографій, практичні поради для мандрівників і контактна інформація для тих, хто хоче поділитися власним досвідом.</p>
+        <p>Ми почнемо з простих речей: як обрати напрямок, скільки часу потрібно на підготовку та які речі справді необхідні. Далі перейдемо до цікавіших тем - гірських маршрутів, морських узбереж і міських прогулянок.</p>
+        <p>Докладніше про автора сайту - на сторінці <a href="about.html">Про мене</a>, а добірку світлин дивіться в <a href="gallery.html">Галереї</a>.</p>
+      </section>
+      <!-- Блок 2: напрямки та приклади -->
+      <section>
+        <h2>Популярні напрямки</h2>
+        <img src="images/sea.webp" alt="Берег моря на заході сонця">
+        <p>Кожен вид відпочинку має свою атмосферу. Ось основні напрямки, про які йдеться на сайті:</p>
+        <ul>
+          <li><strong>Гори</strong> - піші маршрути, свіже повітря, панорамні краєвиди.</li>
+          <li><strong>Море</strong> - пляжний відпочинок, водні види спорту, смачна риба.</li>
+          <li><strong>Міста</strong> - архітектура, музеї, кав'ярні та вуличні ринки.</li>
+          <li><strong>Природа</strong> - ліси, озера та національні парки.</li>
+        </ul>
+        <p>Поради щодо підготовки шукайте на сторінці <a href="tips.html">Поради</a>.</p>
+      </section>
+      <!-- Блок 3: додаткова інформація -->
+      <section>
+        <h2>Найкращий сезон для поїздки</h2>
+        <img src="images/city.webp" alt="Нічне місто з вогнями">
+        <p>У таблиці наведено орієнтовні періоди для різних типів відпочинку.</p>
+        <table>
+          <thead>
+            <tr><th>Тип відпочинку</th><th>Сезон</th><th>Бюджет</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Гори (піші походи)</td><td>Червень - вересень</td><td>Середній</td></tr>
+            <tr><td>Морський пляж</td><td>Липень - серпень</td><td>Вищий за середній</td></tr>
+            <tr><td>Міські екскурсії</td><td>Квітень - жовтень</td><td>Середній</td></tr>
+            <tr><td>Зимові курорти</td><td>Грудень - березень</td><td>Високий</td></tr>
+          </tbody>
+        </table>
+        <!-- Прогрес-бари: width з transition -->
+        <h3>Популярність напрямків (умовна оцінка)</h3>
+        <p class="label"><span>Гори</span><span>85%</span></p>
+        <div class="bar"><span style="--w: 85%"></span></div>
+        <p class="label"><span>Море</span><span>90%</span></p>
+        <div class="bar"><span style="--w: 90%"></span></div>
+        <p class="label"><span>Міста</span><span>70%</span></p>
+        <div class="bar"><span style="--w: 70%"></span></div>
+        <p class="label"><span>Природа</span><span>75%</span></p>
+        <div class="bar"><span style="--w: 75%"></span></div>
+      </section>
+    </div>
+  </main>
+  <!-- Кінець основного контенту -->
+
+  <!-- Початок футера -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; 2026 Світ подорожей. Усі права захищено.</p>
+      <p>Сторінку створено: 18.11.2026</p>
+      <p class="social">
+        <a class="icon" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">Ig</a>
+        <a class="icon" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">Fb</a>
+        <a class="icon" href="https://www.youtube.com/" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">Yt</a>
+      </p>
+    </div>
+  </footer>
+  <!-- Кінець футера -->
+
+  <!-- Кнопка повернення нагору (плавний скролінг через CSS) -->
+  <a href="#top" class="back-to-top" title="Нагору" aria-label="Нагору">&uarr;</a>
+</body>
+</html>

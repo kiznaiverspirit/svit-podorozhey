@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти - Світ подорожей</title>
+  <!-- Підключення шрифту Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+  <!-- Початок шапки -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Світ подорожей</div>
+      <p class="slogan">Відкривай нові місця разом з нами</p>
+    </div>
+  </header>
+  <!-- Кінець шапки -->
+
+  <!-- Початок навігації -->
+  <nav>
+    <div class="container">
+      <ul class="menu">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="about.html">Про мене</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li class="dropdown">
+            <a href="tips.html">Поради</a>
+            <!-- Випадаюче меню з анімацією висування -->
+            <ul class="submenu">
+              <li><a href="tips.html#prepare">Підготовка</a></li>
+              <li><a href="tips.html#packing">Що взяти</a></li>
+              <li><a href="tips.html#budget">Бюджет</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html" class="active">Контакти</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Кінець навігації -->
+
+  <!-- Початок основного контенту -->
+  <main class="container">
+    <h1>Контакти</h1>
+    <div class="columns">
+      <!-- Блок 1: контактна інформація -->
+      <section>
+        <h2>Зв'яжіться зі мною</h2>
+        <img src="images/night.webp" alt="Нічне небо над табором">
+        <p>Якщо ви маєте питання щодо маршрутів, хочете поділитися власним досвідом або запропонувати цікаве місце для наступної подорожі, напишіть мені. Я із задоволенням відповім і, можливо, додам вашу пораду на сайт.</p>
+        <p>Відповідаю зазвичай протягом двох-трьох днів. Для швидкого зв'язку користуйтеся електронною поштою, а новини з подорожей публікую у соціальних мережах, посилання на які є внизу сторінки.</p>
+        <p>Перед тим як писати, перегляньте сторінку <a href="tips.html">Поради</a> - можливо, відповідь уже там.</p>
+      </section>
+      <!-- Блок 2: форма зворотного зв'язку -->
+      <section>
+        <h2>Форма зворотного зв'язку</h2>
+        <p>Заповніть форму нижче (вона працює без серверної обробки і служить прикладом):</p>
+        <form action="#" method="post">
+          <label for="name">Ім'я</label>
+          <input type="text" id="name" name="name" placeholder="Ваше ім'я">
+
+          <label for="email">Електронна пошта</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com">
+
+          <label for="msg">Повідомлення</label>
+          <textarea id="msg" name="msg" rows="5" placeholder="Напишіть ваше запитання"></textarea>
+
+          <button type="submit">Надіслати</button>
+        </form>
+      </section>
+      <!-- Блок 3: таблиця контактів -->
+      <section>
+        <h2>Способи зв'язку</h2>
+        <img src="images/city.webp" alt="Місто ввечері">
+        <table>
+          <thead>
+            <tr><th>Спосіб</th><th>Дані</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Електронна пошта</td><td>travel@example.com</td></tr>
+            <tr><td>Телефон</td><td>+380 00 000 00 00</td></tr>
+            <tr><td>Instagram</td><td>@travel_world</td></tr>
+            <tr><td>Години відповіді</td><td>Пн - Пт, 10:00 - 18:00</td></tr>
+          </tbody>
+        </table>
+        <p>Повернутися на <a href="index.html">Головну</a>.</p>
+      </section>
+    </div>
+  </main>
+  <!-- Кінець основного контенту -->
+
+  <!-- Початок футера -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; 2026 Світ подорожей. Усі права захищено.</p>
+      <p>Сторінку створено: 18.11.2026</p>
+      <p class="social">
+        <a class="icon" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">Ig</a>
+        <a class="icon" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">Fb</a>
+        <a class="icon" href="https://www.youtube.com/" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">Yt</a>
+      </p>
+    </div>
+  </footer>
+  <!-- Кінець футера -->
+
+  <!-- Кнопка повернення нагору (плавний скролінг через CSS) -->
+  <a href="#top" class="back-to-top" title="Нагору" aria-label="Нагору">&uarr;</a>
+</body>
+</html>

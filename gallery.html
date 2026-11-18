@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея - Світ подорожей</title>
+  <!-- Підключення шрифту Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body id="top">
+  <!-- Початок шапки -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">Світ подорожей</div>
+      <p class="slogan">Відкривай нові місця разом з нами</p>
+    </div>
+  </header>
+  <!-- Кінець шапки -->
+
+  <!-- Початок навігації -->
+  <nav>
+    <div class="container">
+      <ul class="menu">
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="about.html">Про мене</a></li>
+          <li><a href="gallery.html" class="active">Галерея</a></li>
+          <li class="dropdown">
+            <a href="tips.html">Поради</a>
+            <!-- Випадаюче меню з анімацією висування -->
+            <ul class="submenu">
+              <li><a href="tips.html#prepare">Підготовка</a></li>
+              <li><a href="tips.html#packing">Що взяти</a></li>
+              <li><a href="tips.html#budget">Бюджет</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html">Контакти</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Кінець навігації -->
+
+  <!-- Початок основного контенту -->
+  <main class="container">
+    <h1>Галерея</h1>
+    <div class="columns">
+      <!-- Блок 1: вступ до галереї -->
+      <section>
+        <h2>Світ очима мандрівника</h2>
+        <img src="images/mountains.webp" alt="Гори на світанку">
+        <p>У цій галереї зібрано найулюбленіші кадри з моїх поїздок. Кожне зображення пов'язане з окремою історією: ранок у горах, вечір на березі моря, прогулянка нічним містом чи вогнище в лісі.</p>
+        <p>Фотографія допомагає зберегти атмосферу місця краще за будь-який опис. Тому я завжди беру з собою камеру і намагаюся фіксувати не лише відомі пам'ятки, а й прості моменти: вуличних музикантів, ринкові прилавки, світло на стінах будинків.</p>
+        <p>Історію кожної поїздки можна прочитати на сторінці <a href="about.html">Про мене</a>.</p>
+        <img src="images/night.webp" alt="Нічне небо">
+      </section>
+      <!-- Блок 2: теми фото -->
+      <section>
+        <h2>Теми світлин</h2>
+        <p>Усі кадри умовно поділено на такі групи:</p>
+        <ul>
+          <li>Гірські пейзажі та вершини.</li>
+          <li>Узбережжя, заходи й сходи сонця.</li>
+          <li>Нічні міста та вуличні вогні.</li>
+          <li>Ліси, пустелі та зоряне небо.</li>
+        </ul>
+        <img src="images/sea.webp" alt="Морське узбережжя">
+        <img src="images/forest.webp" alt="Ліс">
+      </section>
+      <!-- Блок 3: таблиця зображень -->
+      <section>
+        <h2>Каталог зображень</h2>
+        <img src="images/city.webp" alt="Огні нічного міста">
+        <p>Перелік світлин із коротким описом:</p>
+        <table>
+          <thead>
+            <tr><th>Назва</th><th>Тема</th><th>Час доби</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Гори</td><td>Пейзаж</td><td>Вечір</td></tr>
+            <tr><td>Море</td><td>Узбережжя</td><td>Захід сонця</td></tr>
+            <tr><td>Місто</td><td>Архітектура</td><td>Ніч</td></tr>
+            <tr><td>Ліс</td><td>Природа</td><td>День</td></tr>
+            <tr><td>Пустеля</td><td>Пейзаж</td><td>День</td></tr>
+            <tr><td>Табір</td><td>Походи</td><td>Ніч</td></tr>
+          </tbody>
+        </table>
+        <img src="images/desert.webp" alt="Пустеля">
+        <!-- Акордеон: анімація висоти без JavaScript -->
+        <h3>Питання про світлини</h3>
+        <div class="accordion">
+          <input type="checkbox" id="acc1" checked>
+          <label for="acc1">Яку техніку я використовую?</label>
+          <div class="acc-content"><p>Для більшості кадрів достатньо звичайної камери або смартфона. Головне - світло, тому найкращі знімки виходять вранці та ввечері.</p></div>
+          <input type="checkbox" id="acc2">
+          <label for="acc2">Коли краще фотографувати?</label>
+          <div class="acc-content"><p>У «золоту годину» одразу після сходу сонця та перед заходом, коли світло м'яке і тепле.</p></div>
+          <input type="checkbox" id="acc3">
+          <label for="acc3">Чи можна використовувати фото?</label>
+          <div class="acc-content"><p>Ці світлини наведено як навчальний приклад. Перед використанням у своїх проєктах уточніть умови.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Кінець основного контенту -->
+
+  <!-- Початок футера -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; 2026 Світ подорожей. Усі права захищено.</p>
+      <p>Сторінку створено: 18.11.2026</p>
+      <p class="social">
+        <a class="icon" href="https://www.instagram.com/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">Ig</a>
+        <a class="icon" href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">Fb</a>
+        <a class="icon" href="https://www.youtube.com/" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">Yt</a>
+      </p>
+    </div>
+  </footer>
+  <!-- Кінець футера -->
+
+  <!-- Кнопка повернення нагору (плавний скролінг через CSS) -->
+  <a href="#top" class="back-to-top" title="Нагору" aria-label="Нагору">&uarr;</a>
+</body>
+</html>
